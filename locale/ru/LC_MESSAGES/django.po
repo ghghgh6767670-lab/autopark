@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-14 18:34+0600\n"
+"POT-Creation-Date: 2025-09-14 23:00+0600\n"
 "PO-Revision-Date: 2025-09-14 22:32+0000\n"
 "Last-Translator:   <>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,7 +16,9 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
+"(n%100>=11 && n%100<=14)? 2 : 3);\n"
 "X-Translated-Using: django-rosetta 0.10.2\n"
 
 #: .\autopark\forms.py:14 .\autopark\forms.py:54
@@ -39,20 +41,149 @@ msgstr ""
 msgid "Повторите пароль"
 msgstr ""
 
-#: .\rental\models.py:10 .\rental\models.py:13
+#: .\rental\admin.py:20 .\rental\models.py:10 .\rental\models.py:13
 msgid "Тип транспорта"
 msgstr ""
 
-#: .\rental\models.py:14
+#: .\rental\admin.py:21 .\rental\models.py:14
 msgid "Типы транспорта"
 msgstr ""
 
-#: .\rental\models.py:28
+#: .\rental\admin.py:29 .\rental\models.py:27
+msgid "Особенность"
+msgstr ""
+
+#: .\rental\admin.py:30 .\rental\models.py:28
+msgid "Особенности"
+msgstr ""
+
+#: .\rental\admin.py:37 .\rental\admin.py:62
+#: .\rental\templates\rental\vehicle_detail.html:53
+msgid "Локация"
+msgstr ""
+
+#: .\rental\admin.py:38
+msgid "Локации"
+msgstr ""
+
+#: .\rental\admin.py:45
+msgid "Недоступность"
+msgstr ""
+
+#: .\rental\admin.py:46
+msgid "Недоступности"
+msgstr ""
+
+#: .\rental\admin.py:60
+msgid "Основная"
+msgstr ""
+
+#: .\rental\admin.py:61
+msgid "Характеристики"
+msgstr ""
+
+#: .\rental\admin.py:72
+msgid "Недоступность транспорта"
+msgstr ""
+
+#: .\rental\admin.py:73
+msgid "Недоступности транспорта"
+msgstr ""
+
+#: .\rental\admin.py:84 .\rental\models.py:120
+#: .\rental\templates\rental\base.html:807
+#: .\rental\templates\rental\booking_form.html:7
+msgid "Бронирование"
+msgstr ""
+
+#: .\rental\admin.py:85 .\rental\models.py:121
+msgid "Бронирования"
+msgstr ""
+
+#: .\rental\admin.py:95 .\rental\models.py:159
+#: .\rental\templates\rental\base.html:816
+msgid "Оплата"
+msgstr ""
+
+#: .\rental\admin.py:96 .\rental\models.py:160
+msgid "Оплаты"
+msgstr ""
+
+#: .\rental\admin.py:111
+#, python-format
+msgid "Отмечено как одобренные: %(count)d"
+msgstr ""
+
+#: .\rental\admin.py:112
+msgid "Одобрить выбранные отзывы"
+msgstr ""
+
+#: .\rental\admin.py:120
+msgid "Политика аренды"
+msgstr ""
+
+#: .\rental\admin.py:121
+msgid "Политики аренды"
+msgstr ""
+
+#: .\rental\models.py:32
 msgid "Город"
 msgstr ""
 
-#: .\rental\models.py:29
+#: .\rental\models.py:33 .\rental\models.py:39
 msgid "Адрес"
+msgstr ""
+
+#: .\rental\models.py:40
+msgid "Адресы"
+msgstr ""
+
+#: .\rental\models.py:51
+msgid "Бензин"
+msgstr ""
+
+#: .\rental\models.py:51
+msgid "Дизель"
+msgstr ""
+
+#: .\rental\models.py:51
+msgid "Гибрид"
+msgstr ""
+
+#: .\rental\models.py:51
+msgid "Электро"
+msgstr ""
+
+#: .\rental\models.py:77
+msgid "Транспортное средство"
+msgstr ""
+
+#: .\rental\models.py:78
+msgid "Транспортные средствы"
+msgstr ""
+
+#: .\rental\models.py:95
+msgid "Недоступность авто"
+msgstr ""
+
+#: .\rental\models.py:96
+msgid "Недоступности авто"
+msgstr ""
+
+#: .\rental\models.py:173
+msgid "Обзор"
+msgstr ""
+
+#: .\rental\models.py:174
+msgid "Обзоры"
+msgstr ""
+
+#: .\rental\models.py:188
+msgid "Условие проката"
+msgstr ""
+
+#: .\rental\models.py:189
+msgid "Условия проката"
 msgstr ""
 
 #: .\rental\templates\rental\base.html:7
@@ -214,17 +345,8 @@ msgstr ""
 msgid "Выберите автомобиль из нашего каталога и укажите даты аренды"
 msgstr ""
 
-#: .\rental\templates\rental\base.html:807
-#: .\rental\templates\rental\booking_form.html:7
-msgid "Бронирование"
-msgstr ""
-
 #: .\rental\templates\rental\base.html:808
 msgid "Забронируйте онлайн или по телефону с подтверждением брони"
-msgstr ""
-
-#: .\rental\templates\rental\base.html:816
-msgid "Оплата"
 msgstr ""
 
 #: .\rental\templates\rental\base.html:817
@@ -255,8 +377,8 @@ msgstr ""
 
 #: .\rental\templates\rental\base.html:871
 msgid ""
-"Путешествовали по Иссык-Кулю на Honda CR-V. Машина не подвела, полный привод"
-" помог в горных дорогах. Спасибо за качественный сервис!"
+"Путешествовали по Иссык-Кулю на Honda CR-V. Машина не подвела, полный привод "
+"помог в горных дорогах. Спасибо за качественный сервис!"
 msgstr ""
 
 #: .\rental\templates\rental\base.html:889
@@ -300,8 +422,8 @@ msgstr ""
 
 #: .\rental\templates\rental\base.html:933
 msgid ""
-"Все наши автомобили застрахованы по полису КАСКО и ОСАГО. В стоимость аренды"
-" включена базовая страховка. При желании вы можете оформить расширенное "
+"Все наши автомобили застрахованы по полису КАСКО и ОСАГО. В стоимость аренды "
+"включена базовая страховка. При желании вы можете оформить расширенное "
 "страховое покрытие за дополнительную плату."
 msgstr ""
 
@@ -455,10 +577,6 @@ msgstr ""
 
 #: .\rental\templates\rental\vehicle_detail.html:51
 msgid "Топливо"
-msgstr ""
-
-#: .\rental\templates\rental\vehicle_detail.html:53
-msgid "Локация"
 msgstr ""
 
 #: .\rental\templates\rental\vehicle_detail.html:60

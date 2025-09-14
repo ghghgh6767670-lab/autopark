@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-14 18:34+0600\n"
-"PO-Revision-Date: 2025-09-14 22:31+0000\n"
+"POT-Creation-Date: 2025-09-14 23:00+0600\n"
+"PO-Revision-Date: 2025-09-14 23:04+0000\n"
 "Last-Translator:   <>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -39,21 +39,172 @@ msgstr "Incorrect email or password"
 msgid "Повторите пароль"
 msgstr "Repeat password"
 
-#: .\rental\models.py:10 .\rental\models.py:13
+#: .\rental\admin.py:20 .\rental\models.py:10 .\rental\models.py:13
 msgid "Тип транспорта"
 msgstr "Type of transport"
 
-#: .\rental\models.py:14
+#: .\rental\admin.py:21 .\rental\models.py:14
 msgid "Типы транспорта"
 msgstr "Types of transport"
 
-#: .\rental\models.py:28
+#: .\rental\admin.py:29 .\rental\models.py:27
+msgid "Особенность"
+msgstr "Peculiarity"
+
+#: .\rental\admin.py:30 .\rental\models.py:28
+msgid "Особенности"
+msgstr "Peculiarities"
+
+#: .\rental\admin.py:37 .\rental\admin.py:62
+#: .\rental\templates\rental\vehicle_detail.html:53
+msgid "Локация"
+msgstr "Location"
+
+#: .\rental\admin.py:38
+#, fuzzy
+#| msgid "Локация"
+msgid "Локации"
+msgstr "Location"
+
+#: .\rental\admin.py:45
+msgid "Недоступность"
+msgstr "Unavailability"
+
+#: .\rental\admin.py:46
+msgid "Недоступности"
+msgstr "Inaccessibility"
+
+#: .\rental\admin.py:60
+#, fuzzy
+#| msgid "Главная"
+msgid "Основная"
+msgstr "Home"
+
+#: .\rental\admin.py:61
+msgid "Характеристики"
+msgstr "Characteristics"
+
+#: .\rental\admin.py:72
+#, fuzzy
+#| msgid "Типы транспорта"
+msgid "Недоступность транспорта"
+msgstr "Types of transport"
+
+#: .\rental\admin.py:73
+#, fuzzy
+#| msgid "Типы транспорта"
+msgid "Недоступности транспорта"
+msgstr "Types of transport"
+
+#: .\rental\admin.py:84 .\rental\models.py:120
+#: .\rental\templates\rental\base.html:807
+#: .\rental\templates\rental\booking_form.html:7
+msgid "Бронирование"
+msgstr "Booking"
+
+#: .\rental\admin.py:85 .\rental\models.py:121
+#, fuzzy
+#| msgid "Бронирование"
+msgid "Бронирования"
+msgstr "Booking"
+
+#: .\rental\admin.py:95 .\rental\models.py:159
+#: .\rental\templates\rental\base.html:816
+msgid "Оплата"
+msgstr "Payment"
+
+#: .\rental\admin.py:96 .\rental\models.py:160
+#, fuzzy
+#| msgid "Оплата"
+msgid "Оплаты"
+msgstr "Payment"
+
+#: .\rental\admin.py:111
+#, python-format
+msgid "Отмечено как одобренные: %(count)d"
+msgstr "Marked as approved: %(count)d"
+
+#: .\rental\admin.py:112
+msgid "Одобрить выбранные отзывы"
+msgstr "Approve selected reviews"
+
+#: .\rental\admin.py:120
+#, fuzzy
+#| msgid "Простой процесс аренды"
+msgid "Политика аренды"
+msgstr "Simple rental process"
+
+#: .\rental\admin.py:121
+#, fuzzy
+#| msgid "Простой процесс аренды"
+msgid "Политики аренды"
+msgstr "Simple rental process"
+
+#: .\rental\models.py:32
 msgid "Город"
 msgstr "City"
 
-#: .\rental\models.py:29
+#: .\rental\models.py:33 .\rental\models.py:39
 msgid "Адрес"
 msgstr "Address"
+
+#: .\rental\models.py:40
+#, fuzzy
+#| msgid "Адрес"
+msgid "Адресы"
+msgstr "Address"
+
+#: .\rental\models.py:51
+msgid "Бензин"
+msgstr "Petrol"
+
+#: .\rental\models.py:51
+msgid "Дизель"
+msgstr "Diesel"
+
+#: .\rental\models.py:51
+msgid "Гибрид"
+msgstr "Hybrid"
+
+#: .\rental\models.py:51
+msgid "Электро"
+msgstr "Electro"
+
+#: .\rental\models.py:77
+msgid "Транспортное средство"
+msgstr "Vehicle"
+
+#: .\rental\models.py:78
+msgid "Транспортные средствы"
+msgstr "Vehicles"
+
+#: .\rental\models.py:95
+#, fuzzy
+#| msgid "Доставка авто"
+msgid "Недоступность авто"
+msgstr "Car delivery"
+
+#: .\rental\models.py:96
+#, fuzzy
+#| msgid "Доставка авто"
+msgid "Недоступности авто"
+msgstr "Car delivery"
+
+#: .\rental\models.py:173
+msgid "Обзор"
+msgstr "Review"
+
+#: .\rental\models.py:174
+msgid "Обзоры"
+msgstr "Reviews"
+
+#: .\rental\models.py:188
+msgid "Условие проката"
+msgstr "Rental conditions"
+
+#: .\rental\models.py:189
+msgid "Условия проката"
+msgstr "Rental conditions"
 
 #: .\rental\templates\rental\base.html:7
 msgid "AUTOPARK.KG"
@@ -222,18 +373,9 @@ msgstr "Selecting a car"
 msgid "Выберите автомобиль из нашего каталога и укажите даты аренды"
 msgstr "Select a car from our catalog and specify rental dates"
 
-#: .\rental\templates\rental\base.html:807
-#: .\rental\templates\rental\booking_form.html:7
-msgid "Бронирование"
-msgstr "Booking"
-
 #: .\rental\templates\rental\base.html:808
 msgid "Забронируйте онлайн или по телефону с подтверждением брони"
 msgstr "Book online or by phone with booking confirmation"
-
-#: .\rental\templates\rental\base.html:816
-msgid "Оплата"
-msgstr "Payment"
 
 #: .\rental\templates\rental\base.html:817
 msgid "Оплатите удобным способом: картой, наличными или онлайн"
@@ -345,7 +487,6 @@ msgid "Готовы к путешествию?"
 msgstr "Ready to travel?"
 
 #: .\rental\templates\rental\base.html:957
-#, python-format
 msgid ""
 "Забронируйте автомобиль прямо сейчас и получите скидку 10%% на первую аренду"
 msgstr "Book your car now and get 10% off your first rental"
@@ -483,10 +624,6 @@ msgstr "Transmission"
 #: .\rental\templates\rental\vehicle_detail.html:51
 msgid "Топливо"
 msgstr "Fuel"
-
-#: .\rental\templates\rental\vehicle_detail.html:53
-msgid "Локация"
-msgstr "Location"
 
 #: .\rental\templates\rental\vehicle_detail.html:60
 msgid "Войдите, чтобы забронировать"

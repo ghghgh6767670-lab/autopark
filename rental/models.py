@@ -23,6 +23,10 @@ class Feature(models.Model):
     def __str__(self):
         return self.name
 
+    class Meta:
+        verbose_name = _("Особенность")
+        verbose_name_plural = _("Особенности")
+
 
 class Location(models.Model):
     city = models.CharField(max_length=80, verbose_name=_('Город'))
@@ -30,6 +34,10 @@ class Location(models.Model):
 
     def __str__(self):
         return f"{self.city}, {self.address}"
+
+    class Meta:
+        verbose_name = _("Адрес")
+        verbose_name_plural = _("Адресы")
 
 
 class Vehicle(models.Model):
@@ -40,7 +48,7 @@ class Vehicle(models.Model):
     transmission = models.CharField(max_length=20, choices=[("AT", "AT"), ("MT", "MT")])
     fuel = models.CharField(
         max_length=20,
-        choices=[("petrol", "Бензин"), ("diesel", "Дизель"), ("hybrid", "Гибрид"), ("ev", "Электро")]
+        choices=[("petrol", _("Бензин")), ("diesel", _("Дизель")), ("hybrid", _("Гибрид")), ("ev", _("Электро"))]
     )
     seats = models.PositiveSmallIntegerField(default=5)
     location = models.ForeignKey(Location, on_delete=models.PROTECT)
@@ -65,6 +73,10 @@ class Vehicle(models.Model):
         )
         return not overlapping_bookings.exists()
 
+    class Meta:
+        verbose_name = _("Транспортное средство")
+        verbose_name_plural = _("Транспортные средствы")
+
 class VehicleImage(models.Model):
     vehicle = models.ForeignKey(Vehicle, on_delete=models.CASCADE, related_name="images")
     image = models.ImageField(upload_to="vehicles/")
@@ -80,8 +92,8 @@ class VehicleAvailability(models.Model):
     reason = models.CharField(max_length=120, blank=True)  # maintenance/hold
 
     class Meta:
-        verbose_name = "Недоступность авто"
-        verbose_name_plural = "Недоступности авто"
+        verbose_name = _("Недоступность авто")
+        verbose_name_plural = _("Недоступности авто")
 
     def __str__(self):
         return f"{self.vehicle} недоступен с {self.date_from} по {self.date_to}"
@@ -105,6 +117,8 @@ class Booking(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
+        verbose_name = _("Бронирование")
+        verbose_name_plural = _("Бронирования")
         indexes = [models.Index(fields=["vehicle", "date_from", "date_to"])]
         constraints = [
             models.CheckConstraint(
@@ -141,6 +155,10 @@ class Payment(models.Model):
     def __str__(self):
         return f"{self.provider} - {self.amount} {self.currency} ({self.status})"
 
+    class Meta:
+        verbose_name = _("Оплата")
+        verbose_name_plural = _("Оплаты")
+
 
 class Review(models.Model):
     booking = models.OneToOneField(Booking, on_delete=models.CASCADE)  # один отзыв на бронь
@@ -152,6 +170,8 @@ class Review(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
+        verbose_name = _("Обзор")
+        verbose_name_plural = _("Обзоры")
         unique_together = ("user", "vehicle")  # нельзя дважды отзыв на одно авто
 
     def __str__(self):
@@ -165,8 +185,8 @@ class RentalPolicy(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
-        verbose_name = "Условие проката"
-        verbose_name_plural = "Условия проката"
+        verbose_name = _("Условие проката")
+        verbose_name_plural = _("Условия проката")
 
     def __str__(self):
         return self.title
