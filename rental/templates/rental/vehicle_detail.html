@@ -1,0 +1,68 @@
+{% extends "rental/base.html" %}
+{% load i18n %}
+{% block title %}{{ vehicle.title }} - AUTOPARK.KG{% endblock %}
+
+{% block content %}
+<main class="container py-5">
+
+  <div class="row g-5">
+    <!-- Галерея фото -->
+    <div class="col-12 col-lg-7">
+      {% if vehicle.images.all %}
+        <!-- Главное фото -->
+        <div id="vehicleCarousel" class="carousel slide shadow rounded" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            {% for img in vehicle.images.all %}
+              <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                <img src="{{ img.image.url }}" class="d-block w-100 rounded" alt="{{ vehicle.title }}">
+              </div>
+            {% endfor %}
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#vehicleCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">{% trans "Предыдущий" %}</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#vehicleCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">{% trans "Следующий" %}</span>
+          </button>
+        </div>
+
+        <!-- Миниатюры -->
+        <div class="d-flex flex-wrap gap-2 mt-3">
+          {% for img in vehicle.images.all %}
+            <img src="{{ img.image.url }}" class="img-thumbnail" style="width:100px; height:70px; object-fit:cover; cursor:pointer"
+                 onclick="document.querySelector('#vehicleCarousel .carousel-item.active img').src='{{ img.image.url }}'">
+          {% endfor %}
+        </div>
+      {% else %}
+        <img src="https://via.placeholder.com/800x500?text=No+Image" class="img-fluid rounded shadow" alt="No image">
+      {% endif %}
+    </div>
+
+    <!-- Информация -->
+    <div class="col-12 col-lg-5">
+      <div class="card shadow-lg border-0 h-100">
+        <div class="card-body">
+          <h2 class="fw-bold mb-3">{{ vehicle.title }}</h2>
+          <ul class="list-unstyled mb-4">
+            <li><strong>{% trans "Тип" %}:</strong> {{ vehicle.type.name }}</li>
+            <li><strong>{% trans "Трансмиссия" %}:</strong> {{ vehicle.transmission }}</li>
+            <li><strong>{% trans "Топливо" %}:</strong> {{ vehicle.fuel }}</li>
+            <li><strong>{% trans "Сидений" %}:</strong> {{ vehicle.seats }}</li>
+            <li><strong>{% trans "Локация" %}:</strong> {{ vehicle.location.city }}, {{ vehicle.location.address }}</li>
+            <li class="fs-5 text-primary"><strong>{% trans "Цена за день" %}:</strong> {{ vehicle.price_per_day }} KGS</li>
+          </ul>
+
+          {% if user.is_authenticated %}
+            <a href="{% url 'create_booking' vehicle.id %}" class="btn btn-success btn-lg w-100">{% trans "Забронировать" %}</a>
+          {% else %}
+            <a href="{% url 'auth' %}" class="btn btn-primary btn-lg w-100">{% trans "Войдите, чтобы забронировать" %}</a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+
+</main>
+{% endblock %}

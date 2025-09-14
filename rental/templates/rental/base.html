@@ -1,0 +1,1120 @@
+{% load i18n static %}
+<!DOCTYPE html>
+<html lang="{{ LANGUAGE_CODE }}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}{% trans "AUTOPARK.KG" %}{% endblock %}</title>
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
+  <style>
+    :root {
+      --primary: #2563EB;
+      --primary-hover: #1E40AF;
+      --secondary: #FACC15;
+      --secondary-hover: #EAB308;
+      --accent: #FACC15;
+      --background: #F8FAFC;
+      --card-bg: #FFFFFF;
+      --text-primary: #111827;
+      --text-secondary: #6B7280;
+      --success: #10B981;
+      --danger: #EF4444;
+      --light: #F8FAFC;
+      --gradient: linear-gradient(135deg, #2563EB 0%, #1E40AF 100%);
+      --shadow: 0 10px 30px rgba(0,0,0,0.05);
+      --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--background);
+      color: var(--text-primary);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Modern Container */
+    .container-modern {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    .block-content {
+        margin: 20px 50px;
+    }
+    /* Modern Navbar */
+    .navbar {
+      background: var(--card-bg);
+      box-shadow: var(--shadow);
+      padding: 15px 0;
+      transition: var(--transition);
+    }
+
+    .navbar-brand {
+      font-weight: 800;
+      font-size: 1.8rem;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+    }
+
+    .navbar-brand span {
+      color: var(--secondary);
+    }
+
+    .nav-link {
+      color: var(--text-primary);
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+      transition: var(--transition);
+    }
+
+    .nav-link:hover {
+      color: var(--primary);
+    }
+
+    .nav-link.active {
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    .btn {
+      border-radius: 12px;
+      padding: 10px 24px;
+      font-weight: 600;
+      transition: var(--transition);
+      border: none;
+    }
+
+    .btn-primary {
+      background: var(--gradient);
+      box-shadow: 0 4px 15px rgba(37, 99, 235, 0.2);
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
+    }
+
+    .btn-outline-primary {
+      border: 2px solid var(--primary);
+      color: var(--primary);
+    }
+
+    .btn-outline-primary:hover {
+      background: var(--primary);
+      color: white;
+    }
+
+    /* Mobile Menu */
+    .mobile-menu-btn {
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 30px;
+      height: 21px;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      z-index: 1001;
+    }
+
+    .mobile-menu-btn span {
+      height: 3px;
+      width: 100%;
+      background-color: var(--text-primary);
+      border-radius: 3px;
+      transition: var(--transition);
+    }
+
+    .mobile-menu-btn.open span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .mobile-menu-btn.open span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .mobile-menu-btn.open span:nth-child(3) {
+      transform: rotate(-45deg) translate(7px, -6px);
+    }
+
+    .mobile-menu {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 100%; /* Изменено с 80% на 100% */
+      max-width: none; /* Убрано ограничение максимальной ширины */
+      height: 100vh;
+      background: var(--card-bg);
+      box-shadow: -5px 0 25px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+      padding: 100px 30px 30px;
+      transition: right 0.4s ease;
+      overflow-y: auto;
+    }
+
+
+    .mobile-menu.open {
+      right: 0;
+    }
+    .mobile-menu-content {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      max-width: 400px; /* Ограничиваем ширину контента для удобства чтения */
+      margin: 0 auto; /* Центрируем контент */
+    }
+
+    .mobile-menu-content .nav-link {
+      padding: 12px 0;
+      border-bottom: 1px solid #eee;
+      font-size: 1.1rem;
+    }
+
+    .language-selector {
+      width: auto;
+      display: inline-block;
+      margin-left: 10px;
+      border-radius: 8px;
+      border: 1px solid #e5e7eb;
+      padding: 5px 10px;
+    }
+
+    /* Hero Section */
+    .hero-section {
+      position: relative;
+      height: 600px;
+      overflow: hidden;
+      border-radius: 24px;
+      margin: 2rem 0;
+      box-shadow: var(--shadow);
+      background: url('https://images.unsplash.com/photo-1544829099-b9a0c07fad1a?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80') no-repeat center center;
+      background-size: cover;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      display: flex;
+      align-items: center;
+      padding: 3rem;
+      border-radius: 24px;
+    }
+
+    .hero-content h1 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+      color: white;
+      line-height: 1.2;
+    }
+
+    .hero-content p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      color: white;
+      max-width: 600px;
+      opacity: 0.9;
+    }
+
+    /* Stats Section */
+    .stats-section {
+      padding: 5rem 0;
+      background: var(--gradient);
+      color: white;
+      border-radius: 24px;
+      margin: 4rem 0;
+      box-shadow: var(--shadow);
+    }
+
+    .stat-item {
+      text-align: center;
+      padding: 15px;
+    }
+
+    .stat-number {
+      font-size: 3rem;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+      color: white;
+    }
+
+    .stat-label {
+      font-size: 1.1rem;
+      opacity: 0.9;
+      color: white;
+    }
+
+    /* Feature Cards */
+    .feature-card {
+      text-align: center;
+      padding: 2.5rem 2rem;
+      border-radius: 20px;
+      height: 100%;
+      transition: var(--transition);
+      background: var(--card-bg);
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    }
+
+    .feature-icon {
+      width: 80px;
+      height: 80px;
+      background: var(--gradient);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+      color: white;
+      font-size: 2rem;
+    }
+
+    /* Car Cards */
+    .car-card {
+      border: none;
+      border-radius: 20px;
+      overflow: hidden;
+      transition: var(--transition);
+      box-shadow: var(--shadow);
+      background: var(--card-bg);
+    }
+
+    .car-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    }
+
+    .car-card img {
+      height: 220px;
+      object-fit: cover;
+      width: 100%;
+    }
+
+    .car-card .card-body {
+      padding: 1.5rem;
+    }
+
+    .car-price {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    /* Testimonials */
+    .testimonial-card {
+      padding: 2rem;
+      border-radius: 20px;
+      background: var(--card-bg);
+      box-shadow: var(--shadow);
+      height: 100%;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .testimonial-avatar {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-right: 1rem;
+    }
+
+    /* CTA Section */
+    .cta-section {
+      background: url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80') no-repeat center center;
+      background-size: cover;
+      padding: 6rem 0;
+      border-radius: 24px;
+      margin: 4rem 0;
+      position: relative;
+      color: white;
+    }
+
+    .cta-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      border-radius: 24px;
+    }
+
+    .cta-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+    }
+
+    /* Section Titles */
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      text-align: center;
+      color: var(--text-primary);
+    }
+
+    .section-subtitle {
+      font-size: 1.2rem;
+      color: var(--text-secondary);
+      text-align: center;
+      margin-bottom: 3rem;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--text-primary);
+      color: white;
+      padding: 4rem 0 2rem;
+      margin-top: 5rem;
+    }
+
+    footer h3, footer h5 {
+      color: white;
+      margin-bottom: 1.5rem;
+    }
+
+    footer p, footer li {
+      opacity: 0.8;
+    }
+
+    .footer-links a {
+      color: white;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .footer-links a:hover {
+      color: var(--secondary);
+      padding-left: 5px;
+    }
+
+    /* Back to top button */
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: var(--gradient);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition);
+      z-index: 999;
+    }
+
+    .back-to-top.show {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .back-to-top:hover {
+      transform: translateY(-5px);
+    }
+
+    /* Accordion */
+    .accordion-button {
+      font-weight: 600;
+      padding: 1.2rem 1.25rem;
+      border: 1px solid rgba(0,0,0,0.125);
+      border-radius: 12px;
+      margin-bottom: 10px;
+    }
+
+    .accordion-button:not(.collapsed) {
+      background-color: var(--primary);
+      color: white;
+    }
+
+    .accordion-body {
+      padding: 1.5rem;
+    }
+
+    /* Animation */
+    .animate-fadein {
+      animation: fadeIn 0.6s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 992px) {
+      .hero-content h1 {
+        font-size: 2.8rem;
+      }
+
+      .section-title {
+        font-size: 2.2rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .desktop-menu {
+        display: none;
+      }
+
+      .mobile-menu-btn {
+        display: flex;
+      }
+
+      .hero-content h1 {
+        font-size: 2.3rem;
+      }
+
+      .hero-section {
+        height: 500px;
+      }
+
+      .stat-number {
+        font-size: 2.5rem;
+      }
+
+      .section-title {
+        font-size: 2rem;
+      }
+
+      .feature-card, .car-card, .testimonial-card {
+        margin-bottom: 20px;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .hero-content h1 {
+        font-size: 2rem;
+      }
+
+      .hero-content p {
+        font-size: 1rem;
+      }
+
+      .section-title {
+        font-size: 1.8rem;
+      }
+
+      .stat-number {
+        font-size: 2rem;
+      }
+
+      .btn {
+        padding: 8px 16px;
+      }
+    }
+  </style>
+
+  {% block extra_css %}{% endblock %}
+</head>
+<body>
+<!-- Modern Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light sticky-top">
+  <div class="container-modern d-flex justify-content-between align-items-center">
+    <a class="navbar-brand" href="{% url 'home' %}">AUTO<span>PARK</span>.KG</a>
+
+    <!-- Desktop Menu -->
+    <div class="desktop-menu">
+      <ul class="navbar-nav ms-auto align-items-lg-center">
+        <!-- Language selector -->
+        <li class="nav-item">
+          <form action="{% url 'set_language' %}" method="post" class="d-inline">
+            {% csrf_token %}
+            <select name="language" onchange="this.form.submit()" class="form-select language-selector">
+              {% get_current_language as LANGUAGE_CODE %}
+              {% get_available_languages as LANGUAGES %}
+              {% for lang_code, lang_name in LANGUAGES %}
+                <option value="{{ lang_code }}" {% if lang_code == LANGUAGE_CODE %}selected{% endif %}>
+                  {{ lang_name }}
+                </option>
+              {% endfor %}
+            </select>
+          </form>
+        </li>
+
+        {% if user.is_authenticated %}
+          <li class="nav-item">
+            <a href="{% url 'profile' %}" class="nav-link">
+              <i class="fas fa-user me-2"></i>{% trans "Профиль" %}
+            </a>
+          </li>
+          <li class="nav-item">
+            <button type="button" class="btn btn-outline-danger btn-sm" data-bs-toggle="modal" data-bs-target="#logoutModal">
+              <i class="fas fa-sign-out-alt me-2"></i>{% trans "Выйти" %}
+            </button>
+          </li>
+        {% else %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'auth' %}">
+              <i class="fas fa-sign-in-alt me-2"></i>{% trans "Вход" %}
+            </a>
+          </li>
+        {% endif %}
+      </ul>
+    </div>
+
+    <!-- Mobile Menu Button -->
+<!-- Mobile Menu Button -->
+    <button class="mobile-menu-btn" id="mobileMenuBtn">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+</div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-menu-content">
+    <a href="{% url 'vehicles' %}" class="navbar-brand">АВТОМОБИЛИ</a>
+    <!-- Language selector -->
+    <form action="{% url 'set_language' %}" method="post" class="d-inline">
+      {% csrf_token %}
+      <select name="language" onchange="this.form.submit()" class="form-select language-selector mb-4">
+        {% get_current_language as LANGUAGE_CODE %}
+        {% get_available_languages as LANGUAGES %}
+        {% for lang_code, lang_name in LANGUAGES %}
+          <option value="{{ lang_code }}" {% if lang_code == LANGUAGE_CODE %}selected{% endif %}>
+            {{ lang_name }}
+          </option>
+        {% endfor %}
+      </select>
+    </form>
+
+    {% if user.is_authenticated %}
+      <a href="{% url 'profile' %}" class="nav-link">
+        <i class="fas fa-user me-2"></i>{% trans "Профиль" %}
+      </a>
+      <button type="button" class="btn btn-outline-danger btn-sm" data-bs-toggle="modal" data-bs-target="#logoutModal">
+        <i class="fas fa-sign-out-alt me-2"></i>{% trans "Выйти" %}
+      </button>
+    {% else %}
+      <a class="nav-link" href="{% url 'auth' %}">
+        <i class="fas fa-sign-in-alt me-2"></i>{% trans "Вход" %}
+      </a>
+      <a class="btn btn-primary btn-sm mt-2" href="{% url 'auth' %}">
+        <i class="fas fa-user-plus me-2"></i>{% trans "Регистрация" %}
+      </a>
+    {% endif %}
+  </div>
+</div>
+
+{% block content %}
+
+<main class="container-modern my-5">
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-overlay">
+      <div class="hero-content">
+        <h1>{% trans "Аренда автомобилей в Кыргызстане" %}</h1>
+        <p>{% trans "Найдите идеальный автомобиль для вашего путешествия по Кыргызстану. Простая аренда, гибкие условия и лучшие цены." %}</p>
+        <a href="#cars" class="btn btn-primary btn-lg">{% trans "Найти автомобиль" %}</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="stats-section">
+    <div class="row text-center">
+      <div class="col-md-3 col-6 mb-4 mb-md-0">
+        <div class="stat-item">
+          <div class="stat-number" data-count="250">0</div>
+          <div class="stat-label">{% trans "Автомобилей" %}</div>
+        </div>
+      </div>
+      <div class="col-md-3 col-6 mb-4 mb-md-0">
+        <div class="stat-item">
+          <div class="stat-number" data-count="5000">0</div>
+          <div class="stat-label">{% trans "Довольных клиентов" %}</div>
+        </div>
+      </div>
+      <div class="col-md-3 col-6">
+        <div class="stat-item">
+          <div class="stat-number" data-count="15">0</div>
+          <div class="stat-label">{% trans "Лет опыта" %}</div>
+        </div>
+      </div>
+      <div class="col-md-3 col-6">
+        <div class="stat-item">
+          <div class="stat-number" data-count="24">0</div>
+          <div class="stat-label">{% trans "Поддержка 24/7" %}</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="my-5 py-5">
+    <h2 class="section-title">{% trans "Почему выбирают нас" %}</h2>
+    <p class="section-subtitle">{% trans "Мы предлагаем лучший сервис по аренде автомобилей в Кыргызстане с гарантией качества и надежности" %}</p>
+
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="feature-card card">
+          <div class="feature-icon">
+            <i class="fas fa-tag"></i>
+          </div>
+          <h3>{% trans "Лучшие цены" %}</h3>
+          <p>{% trans "Гарантия лучшей цены на рынке. Если найдете дешевле - мы сделаем скидку!" %}</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="feature-card card">
+          <div class="feature-icon">
+            <i class="fas fa-shield-alt"></i>
+          </div>
+          <h3>{% trans "Полная страховка" %}</h3>
+          <p>{% trans "Все автомобили застрахованы. Ваша безопасность - наш приоритет." %}</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="feature-card card">
+          <div class="feature-icon">
+            <i class="fas fa-road"></i>
+          </div>
+          <h3>{% trans "Без ограничения пробега" %}</h3>
+          <p>{% trans "Путешествуйте без ограничений. Никаких лимитов на километраж." %}</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="feature-card card">
+          <div class="feature-icon">
+            <i class="fas fa-car"></i>
+          </div>
+          <h3>{% trans "Новые автомобили" %}</h3>
+          <p>{% trans "Современный парк автомобилей не старше 3 лет с регулярным техобслуживанием." %}</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="feature-card card">
+          <div class="feature-icon">
+            <i class="fas fa-clock"></i>
+          </div>
+          <h3>{% trans "Круглосуточная поддержка" %}</h3>
+          <p>{% trans "Наша служба поддержки доступна 24/7 для решения любых вопросов." %}</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="feature-card card">
+          <div class="feature-icon">
+            <i class="fas fa-map-marker-alt"></i>
+          </div>
+          <h3>{% trans "Доставка авто" %}</h3>
+          <p>{% trans "Доставим автомобиль в любую точку города: аэропорт, вокзал, отель." %}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cars Section -->
+<section id="cars" class="my-5 py-5">
+  <h2 class="section-title">{% trans "Последние автомобили" %}</h2>
+  <p class="section-subtitle">{% trans "Выберите автомобиль, который подходит именно вам" %}</p>
+
+  <div class="row g-4">
+    {% for vehicle in vehicles|slice:"-6:" %}
+    <div class="col-lg-4 col-md-6">
+      <div class="car-card card">
+        {% with vehicle.images.all|first as first_image %}
+          {% if first_image %}
+            <img src="{{ first_image.image.url }}" class="card-img-top" alt="{{ vehicle.title }}">
+          {% else %}
+            <img src="https://bsm-team.ru/wp-content/uploads/2020/11/placeholder-car.png" class="card-img-top" alt="No image">
+          {% endif %}
+        {% endwith %}
+        <div class="card-body">
+          <h5 class="card-title">{{ vehicle.title }}</h5>
+          <p class="card-text">{{ vehicle.type.name }} - {{ vehicle.seats }} {% trans "сидений" %}</p>
+          <p class="car-price">{{ vehicle.price_per_day }} сом/день</p>
+          {% if user.is_authenticated %}
+            <a href="{% url 'create_booking' vehicle.id %}" class="btn btn-primary">{% trans "Подробнее" %}</a>
+          {% else %}
+            <a href="{% url 'login' %}" class="btn btn-primary">{% trans "Подробнее" %}</a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+    {% empty %}
+    <p>{% trans "Автомобилей пока нет" %}</p>
+    {% endfor %}
+  </div>
+
+  <div class="text-center mt-5">
+    <a href="{% url 'vehicles' %}" class="btn btn-primary btn-lg">{% trans "Посмотреть все автомобили" %}</a>
+  </div>
+</section>
+
+
+  <!-- Rental Process Section -->
+  <section class="my-5 py-5">
+    <h2 class="section-title">{% trans "Простой процесс аренды" %}</h2>
+    <p class="section-subtitle">{% trans "Всего 4 шага до вашего идеального автомобиля" %}</p>
+
+    <div class="row g-4">
+      <div class="col-lg-3 col-md-6 col-12">
+        <div class="feature-card card">
+          <div class="feature-icon">
+            <span class="fw-bold">1</span>
+          </div>
+          <h3>{% trans "Выбор авто" %}</h3>
+          <p>{% trans "Выберите автомобиль из нашего каталога и укажите даты аренды" %}</p>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6 col-12">
+        <div class="feature-card card">
+          <div class="feature-icon">
+            <span class="fw-bold">2</span>
+          </div>
+          <h3>{% trans "Бронирование" %}</h3>
+          <p>{% trans "Забронируйте онлайн или по телефону с подтверждением брони" %}</p>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6 col-12">
+        <div class="feature-card card">
+          <div class="feature-icon">
+            <span class="fw-bold">3</span>
+          </div>
+          <h3>{% trans "Оплата" %}</h3>
+          <p>{% trans "Оплатите удобным способом: картой, наличными или онлайн" %}</p>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6 col-12">
+        <div class="feature-card card">
+          <div class="feature-icon">
+            <span class="fw-bold">4</span>
+          </div>
+          <h3>{% trans "Получение" %}</h3>
+          <p>{% trans "Получите автомобиль в указанном месте с полным баком" %}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="my-5 py-5">
+    <h2 class="section-title">{% trans "Отзывы клиентов" %}</h2>
+    <p class="section-subtitle">{% trans "Что говорят наши клиенты о сервисе AUTOPARK.KG" %}</p>
+
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="testimonial-card">
+          <div class="d-flex align-items-center mb-3">
+            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Client" class="testimonial-avatar">
+            <div>
+              <h5 class="mb-0">Айбек Т.</h5>
+              <div class="text-warning">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+            </div>
+          </div>
+          <p class="mb-0">{% trans "Арендовал Toyota Camry на неделю. Автомобиль в идеальном состоянии, процесс аренды занял всего 15 минут. Обязательно буду пользоваться снова!" %}</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="testimonial-card">
+          <div class="d-flex align-items-center mb-3">
+            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Client" class="testimonial-avatar">
+            <div>
+              <h5 class="mb-0">Мария К.</h5>
+              <div class="text-warning">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+            </div>
+          </div>
+          <p class="mb-0">{% trans "Путешествовали по Иссык-Кулю на Honda CR-V. Машина не подвела, полный привод помог в горных дорогах. Спасибо за качественный сервис!" %}</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="testimonial-card">
+          <div class="d-flex align-items-center mb-3">
+            <img src="https://randomuser.me/api/portraits/men/62.jpg" alt="Client" class="testimonial-avatar">
+            <div>
+              <h5 class="mb-0">Дмитрий С.</h5>
+              <div class="text-warning">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+              </div>
+            </div>
+          </div>
+          <p class="mb-0">{% trans "Брал Mercedes для важной бизнес-встречи. Произвел отличное впечатление на партнеров. Удобно, что доставили прямо в аэропорт." %}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="my-5 py-5">
+    <h2 class="section-title">{% trans "Часто задаваемые вопросы" %}</h2>
+    <p class="section-subtitle">{% trans "Мы ответили на самые популярные вопросы об аренде автомобилей" %}</p>
+
+    <div class="accordion" id="faqAccordion">
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingOne">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            {% trans "Какие документы нужны для аренды автомобиля?" %}
+          </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            {% trans "Для аренды автомобиля необходимо предоставить водительское удостоверение (стаж не менее 2 лет), паспорт и залог. Для иностранных граждан также требуется международное водительское удостоверение." %}
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingTwo">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+            {% trans "Какой срок аренды минимальный?" %}
+          </button>
+        </h2>
+        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            {% trans "Минимальный срок аренды составляет 1 сутки. При аренде на longer periods (неделю и более) действуют специальные скидки." %}
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingThree">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+            {% trans "Что включает страховка?" %}
+          </button>
+        </h2>
+        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            {% trans "Все наши автомобили застрахованы по полису КАСКО и ОСАГО. В стоимость аренды включена базовая страховка. При желании вы можете оформить расширенное страховое покрытие за дополнительную плату." %}
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingFour">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+            {% trans "Можно ли арендовать автомобиль с водителем?" %}
+          </button>
+        </h2>
+        <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            {% trans "Да, мы предоставляем услугу аренды автомобиля с профессиональным водителем. Стоимость услуги зависит от класса автомобиля и продолжительности аренды." %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="cta-overlay"></div>
+    <div class="cta-content">
+      <h2 class="mb-4">{% trans "Готовы к путешествию?" %}</h2>
+      <p class="mb-4 fs-5">{% trans "Забронируйте автомобиль прямо сейчас и получите скидку 10% на первую аренду" %}</p>
+      <a href="#" class="btn btn-primary btn-lg me-3">{% trans "Забронировать" %}</a>
+      <a href="tel:+996555123456" class="btn btn-outline-light btn-lg">{% trans "Позвонить нам" %}</a>
+    </div>
+  </section>
+</main>
+
+{% endblock %}
+
+<!-- Footer -->
+<footer class="mt-auto">
+  <div class="container-modern">
+    <div class="row">
+      <div class="col-lg-4 mb-4 mb-lg-0">
+        <h3 class="fw-bold mb-4">AUTOPARK.KG</h3>
+        <p>{% trans "Лучший выбор автомобилей в Кыргызстане. Находите идеальный автомобиль для ваших нужд." %}</p>
+      </div>
+      <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+        <h5 class="mb-4">{% trans "Навигация" %}</h5>
+        <ul class="list-unstyled footer-links">
+          <li class="mb-2"><a href="{% url 'home' %}">{% trans "Главная" %}</a></li>
+          <li class="mb-2"><a href="#">{% trans "Каталог" %}</a></li>
+          <li class="mb-2"><a href="#">{% trans "О нас" %}</a></li>
+          <li class="mb-2"><a href="#">{% trans "Контакты" %}</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3 col-md-4 mb-4 mb-md-0">
+        <h5 class="mb-4">{% trans "Контакты" %}</h5>
+        <ul class="list-unstyled footer-links">
+          <li class="mb-2"><i class="fas fa-phone me-2"></i> +996 555 123 456</li>
+          <li class="mb-2"><i class="fas fa-envelope me-2"></i> info@autopark.kg</li>
+          <li class="mb-2"><i class="fas fa-map-marker-alt me-2"></i> {% trans "Бишкек, Кыргызстан" %}</li>
+        </ul>
+      </div>
+      <div class="col-lg-3 col-md-4">
+        <h5 class="mb-4">{% trans "Социальные сети" %}</h5>
+        <div class="d-flex gap-3">
+          <a href="#" class="text-white fs-5"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="text-white fs-5"><i class="fab fa-facebook"></i></a>
+          <a href="#" class="text-white fs-5"><i class="fab fa-telegram"></i></a>
+          <a href="#" class="text-white fs-5"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+    </div>
+    <hr class="my-4 bg-light opacity-50">
+    <div class="text-center">
+      <p class="mb-0">© 2023 AUTOPARK.KG. {% trans "Все права защищены" %}.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Back to top button -->
+<a href="#" class="back-to-top">
+  <i class="fas fa-arrow-up"></i>
+</a>
+
+<!-- Logout Modal -->
+<div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="logoutModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="logoutModalLabel">{% trans "Подтверждение выхода" %}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="d-flex align-items-center">
+          <div class="bg-light rounded-circle p-3 me-3">
+            <i class="fas fa-sign-out-alt text-danger fs-4"></i>
+          </div>
+          <div>
+            <h6 class="mb-1">{% trans "Вы уверены, что хотите выйти?" %}</h6>
+            <p class="mb-0 text-muted">{% trans "Для продолжения потребуется снова войти в систему" %}</p>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{% trans "Отмена" %}</button>
+        <form method="post" action="{% url 'account_logout' %}">
+          {% csrf_token %}
+          <button type="submit" class="btn btn-danger">{% trans "Выйти" %}</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script>
+  // Mobile menu functionality
+  const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+
+  mobileMenuBtn.addEventListener('click', () => {
+    mobileMenuBtn.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+    document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+  });
+
+  // Close mobile menu when clicking on links
+  const mobileLinks = mobileMenu.querySelectorAll('a, button');
+  mobileLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenuBtn.classList.remove('open');
+      mobileMenu.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  });
+
+  // Back to top button functionality
+  const backToTopButton = document.querySelector('.back-to-top');
+
+  window.addEventListener('scroll', () => {
+    if (window.pageYOffset > 300) {
+      backToTopButton.classList.add('show');
+    } else {
+      backToTopButton.classList.remove('show');
+    }
+  });
+
+  backToTopButton.addEventListener('click', (e) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  // Animation on scroll
+  document.addEventListener('DOMContentLoaded', function() {
+    const animatedElements = document.querySelectorAll('.card, .btn');
+
+    animatedElements.forEach(element => {
+      element.classList.add('animate-fadein');
+    });
+
+    // Counter animation for stats
+    const counters = document.querySelectorAll('.stat-number');
+    const speed = 200;
+
+    counters.forEach(counter => {
+      const target = +counter.getAttribute('data-count');
+      const count = +counter.innerText;
+      const increment = Math.ceil(target / speed);
+
+      if (count < target) {
+        counter.innerText = count + increment;
+        setTimeout(updateCounter, 1);
+      } else {
+        counter.innerText = target;
+      }
+
+      function updateCounter() {
+        const current = +counter.innerText;
+        if (current < target) {
+          counter.innerText = current + increment;
+          setTimeout(updateCounter, 1);
+        } else {
+          counter.innerText = target;
+        }
+      }
+    });
+  });
+</script>
+{% block extra_js %} {% endblock %}
+</body>
+</html>

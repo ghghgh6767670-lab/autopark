@@ -1,0 +1,85 @@
+{% extends "rental/base.html" %}
+{% load i18n widget_tweaks %}
+
+{% block content %}
+<div class="container my-5">
+  <div class="card shadow-sm p-4 mx-auto" style="max-width: 600px; border-radius: 12px; background-color: #f9f9f9;">
+    <h2 class="fw-bold mb-4 text-center">{{ vehicle.title }} - {% trans "Бронирование" %}</h2>
+    <form method="post">
+      {% csrf_token %}
+      {{ form.non_field_errors }}
+
+      <div class="mb-3">
+        <label class="form-label">{% trans "Дата начала" %}</label>
+        {{ form.date_from|add_class:"form-control" }}
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">{% trans "Дата окончания" %}</label>
+        {{ form.date_to|add_class:"form-control" }}
+      </div>
+
+      {% if vehicle.current_price %}
+      <div class="mb-3 p-3 bg-light rounded-3 text-center" style="border-left: 4px solid #28a745;">
+        <strong>{% trans "Цена за день" %}:</strong> {{ vehicle.current_price }} KGS
+      </div>
+      {% endif %}
+
+      <button type="submit" class="btn btn-success w-100 fw-bold">{% trans "Забронировать" %}</button>
+    </form>
+  </div>
+</div>
+
+<!-- flatpickr -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script>
+  const bookedDates = JSON.parse('{{ booked_dates|escapejs }}'); // массив строк или диапазонов как у тебя
+  const fromInput = document.querySelector("#id_date_from");
+  const toInput = document.querySelector("#id_date_to");
+
+  // Инициализируем toPicker сначала
+  const toPicker = flatpickr(toInput, {
+    minDate: "today",
+    disable: bookedDates,
+    dateFormat: "Y-m-d",
+    allowInput: true,
+  });
+
+  const fromPicker = flatpickr(fromInput, {
+    minDate: "today",
+    disable: bookedDates,
+    dateFormat: "Y-m-d",
+    allowInput: true,
+    onChange: function(selectedDates) {
+      if (!selectedDates.length) {
+        // сброс minDate на today, если очистили from
+        toPicker.set('minDate', "today");
+        return;
+      }
+      // делаем строго >, поэтому +1 день
+      const d = selectedDates[0];
+      const minTo = new Date(d);
+      minTo.setDate(minTo.getDate() + 1);
+
+      toPicker.set('minDate', minTo);
+
+      // если в to уже выбран день <= minTo — очищаем to, чтобы пользователь снова выбрал
+      const curTo = toPicker.selectedDates[0];
+      if (curTo && curTo <= minTo) {
+        toPicker.clear();
+      }
+    }
+  });
+
+  // При открытии toPicker, убедимся, что minDate синхронизирован (если from уже заполнен)
+  toInput.addEventListener('focus', () => {
+    const fd = fromInput.value;
+    if (fd) {
+      const d = new Date(fd);
+      d.setDate(d.getDate() + 1);
+      toPicker.set('minDate', d);
+    }
+  });
+</script>
+{% endblock %}

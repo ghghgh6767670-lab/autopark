@@ -1,0 +1,149 @@
+{% extends "rental/base.html" %}
+{% block content %}
+<style>
+.profile-card {
+  max-width: 900px;
+  margin: 40px auto;
+  background: var(--card-bg);
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+  padding: 2rem;
+  transition: var(--transition);
+}
+
+.profile-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.profile-avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+  border: 4px solid var(--primary);
+}
+
+.profile-name {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.3rem;
+}
+
+.profile-email {
+  font-size: 1rem;
+  color: var(--text-secondary);
+}
+
+.profile-actions .btn {
+  margin: 10px 5px 0;
+}
+
+/* Секции бронирований */
+.bookings-section {
+  margin-top: 3rem;
+}
+
+.bookings-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1.2rem;
+  color: var(--text-primary);
+}
+
+.booking-card {
+  display: flex;
+  align-items: center;
+  background: var(--card-bg);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  margin-bottom: 1.2rem;
+  overflow: hidden;
+  transition: var(--transition);
+}
+
+.booking-card:hover {
+  transform: translateY(-5px);
+}
+
+.booking-card img {
+  width: 180px;
+  height: 120px;
+  object-fit: cover;
+}
+
+.booking-info {
+  flex: 1;
+  padding: 1rem 1.5rem;
+}
+
+.booking-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--primary);
+  margin-bottom: 0.4rem;
+}
+
+.booking-dates,
+.booking-price {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+}
+
+.booking-status {
+  font-size: 0.9rem;
+  font-weight: 600;
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 8px;
+}
+
+.status-new { background: #2563EB; color: white; }
+.status-pending_payment { background: #FACC15; color: #111827; }
+.status-paid { background: #10B981; color: white; }
+.status-canceled { background: #EF4444; color: white; }
+.status-completed { background: #6B7280; color: white; }
+
+@media (max-width: 768px) {
+  .booking-card { flex-direction: column; }
+  .booking-card img { width: 100%; height: 200px; }
+}
+</style>
+
+<div class="profile-card">
+  <!-- Профиль -->
+  <div class="profile-header">
+    <img src="https://www.servicenow.com/community/s/legacyfs/online/avatars_servicenow/a9a7392fdbbfdb00d58ea345ca96198f.jpg" alt="Avatar" class="profile-avatar">
+    <h2 class="profile-name">{{ user.username }}</h2>
+    <p class="profile-email">{{ user.email }}</p>
+  </div>
+
+  <!-- Бронирования -->
+  <div class="bookings-section">
+    <h3 class="bookings-title">Мои бронирования</h3>
+
+    {% for booking in bookings %}
+    <div class="booking-card">
+      {% with booking.vehicle.images.all|first as first_image %}
+      {% if first_image %}
+        <img src="{{ first_image.image.url }}" class="card-img-top" alt="{{ vehicle.title }}">
+      {% else %}
+        <img src="https://bsm-team.ru/wp-content/uploads/2020/11/placeholder-car.png" class="card-img-top" alt="No image">
+      {% endif %}
+        {% endwith %}
+      <div class="booking-info">
+        <h4 class="booking-title">{{ booking.vehicle.title }}</h4>
+        <p class="booking-dates">С {{ booking.date_from }} по {{ booking.date_to }}</p>
+        <p class="booking-price">Сумма: {{ booking.total_price }} KGS</p>
+        <span class="booking-status status-{{ booking.status }}">{{ booking.get_status_display }}</span>
+      </div>
+    </div>
+    {% empty %}
+      <p>У вас пока нет бронирований.</p>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

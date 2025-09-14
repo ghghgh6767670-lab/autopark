@@ -1,0 +1,50 @@
+{% extends "rental/base.html" %}
+{% load i18n %}
+{% block title %}{% trans "Главная - AUTOPARK.KG" %}{% endblock %}
+
+{% block content %}
+<main class="block-content">
+<!-- Hero Section -->
+<section class="text-center mb-5">
+  <h1 class="fw-bold display-5">{% trans "Арендуйте авто быстро и удобно" %}</h1>
+  <p class="text-muted">{% trans "Лучшие автомобили Кыргызстана — выберите и бронируйте прямо сейчас" %}</p>
+
+  <form method="get" action="{% url 'vehicles' %}" class="row g-2 justify-content-center mt-4">
+    <div class="col-md-4 col-sm-8">
+      <input type="text" name="q" class="form-control form-control-lg" placeholder="{% trans 'Поиск автомобиля...' %}">
+    </div>
+    <div class="col-md-2 col-sm-4">
+      <button class="btn btn-primary btn-lg w-100">{% trans "Найти" %}</button>
+    </div>
+  </form>
+</section>
+
+<!-- Vehicles Grid -->
+<h2 class="mb-4 fw-bold">{% trans "Доступные автомобили" %}</h2>
+<div class="row g-4">
+  {% for vehicle in vehicles %}
+  <div class="col-12 col-md-6 col-lg-4">
+    <div class="card h-100 shadow-sm border-0">
+      {% with vehicle.images.all|first as first_image %}
+      {% if first_image %}
+        <img src="{{ first_image.image.url }}" class="card-img-top" alt="{{ vehicle.title }}">
+      {% else %}
+        <img src="https://bsm-team.ru/wp-content/uploads/2020/11/placeholder-car.png" class="card-img-top" alt="No image">
+      {% endif %}
+    {% endwith %}
+      <div class="card-body d-flex flex-column">
+        <h5 class="card-title fw-bold">{{ vehicle.title }}</h5>
+        <p class="card-text mb-1"><strong>{% trans "Тип" %}:</strong> {{ vehicle.type.name }}</p>
+        <p class="card-text mb-1"><strong>{% trans "Сидений" %}:</strong> {{ vehicle.seats }}</p>
+        <p class="card-text text-muted"><strong>{% trans "Цена" %}:</strong> {{ vehicle.price_per_day }} сом/день</p>
+        <a href="{% url 'vehicle_detail' vehicle.id %}" class="btn btn-primary mt-auto">{% trans "Подробнее" %}</a>
+      </div>
+    </div>
+  </div>
+  {% empty %}
+  <p>{% trans "Автомобилей пока нет" %}</p>
+  {% endfor %}
+</div>
+    </main>
+
+{% endblock %}

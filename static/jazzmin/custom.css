@@ -1,0 +1,61 @@
+.mb-3
+{
+    color: black;
+}
+
+.h4 {
+    color: black;
+}
+
+.breadcrumb-item {
+    a {
+        color: black;
+    }
+}
+
+.dropdown-header {
+    color: white;
+}
+
+.card-header {
+    background-color: whitesmoke;
+
+    h5 {
+        color: black;
+        font-weight: bolder;
+    }
+}
+
+.card-body {
+    background-color: whitesmoke;
+}
+
+.addlink {
+    background: green;
+    color: white;
+}
+
+.changelink {
+    background: rgba(0, 128, 0, 0.43);
+    color: black;
+}
+
+td>a{
+    color: black;
+}
+
+.nav-pills .nav-link, .nav-tabs .nav-link {
+        color: black;
+
+    &:hover {
+        color: white;
+    }
+}
+
+.sidebar {
+    background-color: white;
+}
+
+.main-sidebar {
+    background-color: black;
+}
