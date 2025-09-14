@@ -18,3 +18,7 @@ urlpatterns += [
     path('logout/', CustomLogoutView.as_view(), name='logout'),
     path('auth/social/', include('allauth.socialaccount.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+urlpatterns += [
+    path('rosetta/', include('rosetta.urls')),
+]

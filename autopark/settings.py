@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     # apps for API and AUTH
     'rest_framework',
     'dj_rest_auth',
+    'rosetta',
     'rest_framework.authtoken',
     'django_filters',
     'allauth',

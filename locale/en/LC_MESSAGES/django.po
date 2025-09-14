@@ -1,0 +1,503 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-09-14 18:34+0600\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+#: .\autopark\forms.py:14 .\autopark\forms.py:54
+msgid "Email"
+msgstr ""
+
+#: .\autopark\forms.py:20
+msgid "Введите пароль"
+msgstr ""
+
+#: .\autopark\forms.py:22 .\autopark\forms.py:59
+msgid "Пароль"
+msgstr ""
+
+#: .\autopark\forms.py:34 .\autopark\forms.py:38
+msgid "Неверный email или пароль"
+msgstr ""
+
+#: .\autopark\forms.py:63
+msgid "Повторите пароль"
+msgstr ""
+
+#: .\rental\models.py:10 .\rental\models.py:13
+msgid "Тип транспорта"
+msgstr ""
+
+#: .\rental\models.py:14
+msgid "Типы транспорта"
+msgstr ""
+
+#: .\rental\models.py:28
+msgid "Город"
+msgstr ""
+
+#: .\rental\models.py:29
+msgid "Адрес"
+msgstr ""
+
+#: .\rental\templates\rental\base.html:7
+msgid "AUTOPARK.KG"
+msgstr ""
+
+#: .\rental\templates\rental\base.html:577
+#: .\rental\templates\rental\base.html:625
+msgid "Профиль"
+msgstr ""
+
+#: .\rental\templates\rental\base.html:582
+#: .\rental\templates\rental\base.html:628
+#: .\rental\templates\rental\base.html:1036
+msgid "Выйти"
+msgstr ""
+
+#: .\rental\templates\rental\base.html:588
+#: .\rental\templates\rental\base.html:632
+#: .\templates\auth\login_register.html:228
+msgid "Вход"
+msgstr ""
+
+#: .\rental\templates\rental\base.html:635
+#: .\templates\auth\login_register.html:229
+msgid "Регистрация"
+msgstr ""
+
+#: .\rental\templates\rental\base.html:648
+msgid "Аренда автомобилей в Кыргызстане"
+msgstr ""
+
+#: .\rental\templates\rental\base.html:649
+msgid ""
+"Найдите идеальный автомобиль для вашего путешествия по Кыргызстану. Простая "
+"аренда, гибкие условия и лучшие цены."
+msgstr ""
+
+#: .\rental\templates\rental\base.html:650
+msgid "Найти автомобиль"
+msgstr ""
+
+#: .\rental\templates\rental\base.html:661
+msgid "Автомобилей"
+msgstr ""
+
+#: .\rental\templates\rental\base.html:667
+msgid "Довольных клиентов"
+msgstr ""
+
+#: .\rental\templates\rental\base.html:673
+msgid "Лет опыта"
+msgstr ""
+
+#: .\rental\templates\rental\base.html:679
+msgid "Поддержка 24/7"
+msgstr ""
+
+#: .\rental\templates\rental\base.html:687
+msgid "Почему выбирают нас"
+msgstr ""
+
+#: .\rental\templates\rental\base.html:688
+msgid ""
+"Мы предлагаем лучший сервис по аренде автомобилей в Кыргызстане с гарантией "
+"качества и надежности"
+msgstr ""
+
+#: .\rental\templates\rental\base.html:696
+msgid "Лучшие цены"
+msgstr ""
+
+#: .\rental\templates\rental\base.html:697
+msgid ""
+"Гарантия лучшей цены на рынке. Если найдете дешевле - мы сделаем скидку!"
+msgstr ""
+
+#: .\rental\templates\rental\base.html:705
+msgid "Полная страховка"
+msgstr ""
+
+#: .\rental\templates\rental\base.html:706
+msgid "Все автомобили застрахованы. Ваша безопасность - наш приоритет."
+msgstr ""
+
+#: .\rental\templates\rental\base.html:714
+msgid "Без ограничения пробега"
+msgstr ""
+
+#: .\rental\templates\rental\base.html:715
+msgid "Путешествуйте без ограничений. Никаких лимитов на километраж."
+msgstr ""
+
+#: .\rental\templates\rental\base.html:723
+msgid "Новые автомобили"
+msgstr ""
+
+#: .\rental\templates\rental\base.html:724
+msgid ""
+"Современный парк автомобилей не старше 3 лет с регулярным техобслуживанием."
+msgstr ""
+
+#: .\rental\templates\rental\base.html:732
+msgid "Круглосуточная поддержка"
+msgstr ""
+
+#: .\rental\templates\rental\base.html:733
+msgid "Наша служба поддержки доступна 24/7 для решения любых вопросов."
+msgstr ""
+
+#: .\rental\templates\rental\base.html:741
+msgid "Доставка авто"
+msgstr ""
+
+#: .\rental\templates\rental\base.html:742
+msgid "Доставим автомобиль в любую точку города: аэропорт, вокзал, отель."
+msgstr ""
+
+#: .\rental\templates\rental\base.html:750
+msgid "Последние автомобили"
+msgstr ""
+
+#: .\rental\templates\rental\base.html:751
+msgid "Выберите автомобиль, который подходит именно вам"
+msgstr ""
+
+#: .\rental\templates\rental\base.html:766
+msgid "сидений"
+msgstr ""
+
+#: .\rental\templates\rental\base.html:769
+#: .\rental\templates\rental\base.html:771
+#: .\rental\templates\rental\home.html:40
+msgid "Подробнее"
+msgstr ""
+
+#: .\rental\templates\rental\base.html:777
+#: .\rental\templates\rental\home.html:45
+msgid "Автомобилей пока нет"
+msgstr ""
+
+#: .\rental\templates\rental\base.html:782
+msgid "Посмотреть все автомобили"
+msgstr ""
+
+#: .\rental\templates\rental\base.html:789
+msgid "Простой процесс аренды"
+msgstr ""
+
+#: .\rental\templates\rental\base.html:790
+msgid "Всего 4 шага до вашего идеального автомобиля"
+msgstr ""
+
+#: .\rental\templates\rental\base.html:798
+msgid "Выбор авто"
+msgstr ""
+
+#: .\rental\templates\rental\base.html:799
+msgid "Выберите автомобиль из нашего каталога и укажите даты аренды"
+msgstr ""
+
+#: .\rental\templates\rental\base.html:807
+#: .\rental\templates\rental\booking_form.html:7
+msgid "Бронирование"
+msgstr ""
+
+#: .\rental\templates\rental\base.html:808
+msgid "Забронируйте онлайн или по телефону с подтверждением брони"
+msgstr ""
+
+#: .\rental\templates\rental\base.html:816
+msgid "Оплата"
+msgstr ""
+
+#: .\rental\templates\rental\base.html:817
+msgid "Оплатите удобным способом: картой, наличными или онлайн"
+msgstr ""
+
+#: .\rental\templates\rental\base.html:825
+msgid "Получение"
+msgstr ""
+
+#: .\rental\templates\rental\base.html:826
+msgid "Получите автомобиль в указанном месте с полным баком"
+msgstr ""
+
+#: .\rental\templates\rental\base.html:834
+msgid "Отзывы клиентов"
+msgstr ""
+
+#: .\rental\templates\rental\base.html:835
+msgid "Что говорят наши клиенты о сервисе AUTOPARK.KG"
+msgstr ""
+
+#: .\rental\templates\rental\base.html:853
+msgid ""
+"Арендовал Toyota Camry на неделю. Автомобиль в идеальном состоянии, процесс "
+"аренды занял всего 15 минут. Обязательно буду пользоваться снова!"
+msgstr ""
+
+#: .\rental\templates\rental\base.html:871
+msgid ""
+"Путешествовали по Иссык-Кулю на Honda CR-V. Машина не подвела, полный привод "
+"помог в горных дорогах. Спасибо за качественный сервис!"
+msgstr ""
+
+#: .\rental\templates\rental\base.html:889
+msgid ""
+"Брал Mercedes для важной бизнес-встречи. Произвел отличное впечатление на "
+"партнеров. Удобно, что доставили прямо в аэропорт."
+msgstr ""
+
+#: .\rental\templates\rental\base.html:897
+msgid "Часто задаваемые вопросы"
+msgstr ""
+
+#: .\rental\templates\rental\base.html:898
+msgid "Мы ответили на самые популярные вопросы об аренде автомобилей"
+msgstr ""
+
+#: .\rental\templates\rental\base.html:904
+msgid "Какие документы нужны для аренды автомобиля?"
+msgstr ""
+
+#: .\rental\templates\rental\base.html:909
+msgid ""
+"Для аренды автомобиля необходимо предоставить водительское удостоверение "
+"(стаж не менее 2 лет), паспорт и залог. Для иностранных граждан также "
+"требуется международное водительское удостоверение."
+msgstr ""
+
+#: .\rental\templates\rental\base.html:916
+msgid "Какой срок аренды минимальный?"
+msgstr ""
+
+#: .\rental\templates\rental\base.html:921
+msgid ""
+"Минимальный срок аренды составляет 1 сутки. При аренде на longer periods "
+"(неделю и более) действуют специальные скидки."
+msgstr ""
+
+#: .\rental\templates\rental\base.html:928
+msgid "Что включает страховка?"
+msgstr ""
+
+#: .\rental\templates\rental\base.html:933
+msgid ""
+"Все наши автомобили застрахованы по полису КАСКО и ОСАГО. В стоимость аренды "
+"включена базовая страховка. При желании вы можете оформить расширенное "
+"страховое покрытие за дополнительную плату."
+msgstr ""
+
+#: .\rental\templates\rental\base.html:940
+msgid "Можно ли арендовать автомобиль с водителем?"
+msgstr ""
+
+#: .\rental\templates\rental\base.html:945
+msgid ""
+"Да, мы предоставляем услугу аренды автомобиля с профессиональным водителем. "
+"Стоимость услуги зависит от класса автомобиля и продолжительности аренды."
+msgstr ""
+
+#: .\rental\templates\rental\base.html:956
+msgid "Готовы к путешествию?"
+msgstr ""
+
+#: .\rental\templates\rental\base.html:957
+#, python-format
+msgid ""
+"Забронируйте автомобиль прямо сейчас и получите скидку 10%% на первую аренду"
+msgstr ""
+
+#: .\rental\templates\rental\base.html:958
+#: .\rental\templates\rental\booking_form.html:28
+#: .\rental\templates\rental\vehicle_detail.html:58
+msgid "Забронировать"
+msgstr ""
+
+#: .\rental\templates\rental\base.html:959
+msgid "Позвонить нам"
+msgstr ""
+
+#: .\rental\templates\rental\base.html:972
+msgid ""
+"Лучший выбор автомобилей в Кыргызстане. Находите идеальный автомобиль для "
+"ваших нужд."
+msgstr ""
+
+#: .\rental\templates\rental\base.html:975
+msgid "Навигация"
+msgstr ""
+
+#: .\rental\templates\rental\base.html:977
+msgid "Главная"
+msgstr ""
+
+#: .\rental\templates\rental\base.html:978
+msgid "Каталог"
+msgstr ""
+
+#: .\rental\templates\rental\base.html:979
+msgid "О нас"
+msgstr ""
+
+#: .\rental\templates\rental\base.html:980
+#: .\rental\templates\rental\base.html:984
+msgid "Контакты"
+msgstr ""
+
+#: .\rental\templates\rental\base.html:988
+msgid "Бишкек, Кыргызстан"
+msgstr ""
+
+#: .\rental\templates\rental\base.html:992
+msgid "Социальные сети"
+msgstr ""
+
+#: .\rental\templates\rental\base.html:1003
+msgid "Все права защищены"
+msgstr ""
+
+#: .\rental\templates\rental\base.html:1018
+msgid "Подтверждение выхода"
+msgstr ""
+
+#: .\rental\templates\rental\base.html:1027
+msgid "Вы уверены, что хотите выйти?"
+msgstr ""
+
+#: .\rental\templates\rental\base.html:1028
+msgid "Для продолжения потребуется снова войти в систему"
+msgstr ""
+
+#: .\rental\templates\rental\base.html:1033
+msgid "Отмена"
+msgstr ""
+
+#: .\rental\templates\rental\booking_form.html:13
+msgid "Дата начала"
+msgstr ""
+
+#: .\rental\templates\rental\booking_form.html:18
+msgid "Дата окончания"
+msgstr ""
+
+#: .\rental\templates\rental\booking_form.html:24
+#: .\rental\templates\rental\vehicle_detail.html:54
+msgid "Цена за день"
+msgstr ""
+
+#: .\rental\templates\rental\home.html:3
+msgid "Главная - AUTOPARK.KG"
+msgstr ""
+
+#: .\rental\templates\rental\home.html:9
+msgid "Арендуйте авто быстро и удобно"
+msgstr ""
+
+#: .\rental\templates\rental\home.html:10
+msgid "Лучшие автомобили Кыргызстана — выберите и бронируйте прямо сейчас"
+msgstr ""
+
+#: .\rental\templates\rental\home.html:14
+msgid "Поиск автомобиля..."
+msgstr ""
+
+#: .\rental\templates\rental\home.html:17
+msgid "Найти"
+msgstr ""
+
+#: .\rental\templates\rental\home.html:23
+msgid "Доступные автомобили"
+msgstr ""
+
+#: .\rental\templates\rental\home.html:37
+#: .\rental\templates\rental\vehicle_detail.html:49
+msgid "Тип"
+msgstr ""
+
+#: .\rental\templates\rental\home.html:38
+#: .\rental\templates\rental\vehicle_detail.html:52
+msgid "Сидений"
+msgstr ""
+
+#: .\rental\templates\rental\home.html:39
+msgid "Цена"
+msgstr ""
+
+#: .\rental\templates\rental\vehicle_detail.html:23
+msgid "Предыдущий"
+msgstr ""
+
+#: .\rental\templates\rental\vehicle_detail.html:27
+msgid "Следующий"
+msgstr ""
+
+#: .\rental\templates\rental\vehicle_detail.html:50
+msgid "Трансмиссия"
+msgstr ""
+
+#: .\rental\templates\rental\vehicle_detail.html:51
+msgid "Топливо"
+msgstr ""
+
+#: .\rental\templates\rental\vehicle_detail.html:53
+msgid "Локация"
+msgstr ""
+
+#: .\rental\templates\rental\vehicle_detail.html:60
+msgid "Войдите, чтобы забронировать"
+msgstr ""
+
+#: .\templates\auth\login_register.html:10
+msgid "Вход / Регистрация"
+msgstr ""
+
+#: .\templates\auth\login_register.html:235
+msgid "Добро пожаловать"
+msgstr ""
+
+#: .\templates\auth\login_register.html:277
+#: .\templates\auth\login_register.html:308
+msgid "Войти"
+msgstr ""
+
+#: .\templates\auth\login_register.html:279
+#: .\templates\auth\login_register.html:300
+msgid "или"
+msgstr ""
+
+#: .\templates\auth\login_register.html:283
+msgid "Войти через Google"
+msgstr ""
+
+#: .\templates\auth\login_register.html:287
+msgid "Нет аккаунта?"
+msgstr ""
+
+#: .\templates\auth\login_register.html:287
+#: .\templates\auth\login_register.html:298
+msgid "Зарегистрироваться"
+msgstr ""
+
+#: .\templates\auth\login_register.html:304
+msgid "Зарегистрироваться через Google"
+msgstr ""
+
+#: .\templates\auth\login_register.html:308
+msgid "Уже есть аккаунт?"
+msgstr ""
