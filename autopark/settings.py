@@ -237,7 +237,7 @@ JAZZMIN_SETTINGS = {
     ],
     "custom_css": "jazzmin/custom.css",
     "show_ui_builder": False,  # убрать конструктор тем
-
+"language_chooser": True,
 }
 
 
@@ -272,5 +272,6 @@ JAZZMIN_UI_TWEAKS = {
         "success": "btn-success"
     },
     "sidebar_brand": None,
-    "actions_sticky_top": True
+    "actions_sticky_top": True,
+    
 }

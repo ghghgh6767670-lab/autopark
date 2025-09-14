@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-09-14 18:34+0600\n"
-"PO-Revision-Date: 2025-09-14 19:54+0000\n"
+"PO-Revision-Date: 2025-09-14 22:31+0000\n"
 "Last-Translator:   <>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -21,65 +21,65 @@ msgstr ""
 
 #: .\autopark\forms.py:14 .\autopark\forms.py:54
 msgid "Email"
-msgstr ""
+msgstr "Email"
 
 #: .\autopark\forms.py:20
 msgid "Введите пароль"
-msgstr ""
+msgstr "Enter password"
 
 #: .\autopark\forms.py:22 .\autopark\forms.py:59
 msgid "Пароль"
-msgstr ""
+msgstr "Password"
 
 #: .\autopark\forms.py:34 .\autopark\forms.py:38
 msgid "Неверный email или пароль"
-msgstr ""
+msgstr "Incorrect email or password"
 
 #: .\autopark\forms.py:63
 msgid "Повторите пароль"
-msgstr ""
+msgstr "Repeat password"
 
 #: .\rental\models.py:10 .\rental\models.py:13
 msgid "Тип транспорта"
-msgstr ""
+msgstr "Type of transport"
 
 #: .\rental\models.py:14
 msgid "Типы транспорта"
-msgstr ""
+msgstr "Types of transport"
 
 #: .\rental\models.py:28
 msgid "Город"
-msgstr ""
+msgstr "City"
 
 #: .\rental\models.py:29
 msgid "Адрес"
-msgstr ""
+msgstr "Address"
 
 #: .\rental\templates\rental\base.html:7
 msgid "AUTOPARK.KG"
-msgstr ""
+msgstr "AUTOPARK.KG"
 
 #: .\rental\templates\rental\base.html:577
 #: .\rental\templates\rental\base.html:625
 msgid "Профиль"
-msgstr ""
+msgstr "Profile"
 
 #: .\rental\templates\rental\base.html:582
 #: .\rental\templates\rental\base.html:628
 #: .\rental\templates\rental\base.html:1036
 msgid "Выйти"
-msgstr ""
+msgstr "Log out"
 
 #: .\rental\templates\rental\base.html:588
 #: .\rental\templates\rental\base.html:632
 #: .\templates\auth\login_register.html:228
 msgid "Вход"
-msgstr ""
+msgstr "Entrance"
 
 #: .\rental\templates\rental\base.html:635
 #: .\templates\auth\login_register.html:229
 msgid "Регистрация"
-msgstr ""
+msgstr "Registration"
 
 #: .\rental\templates\rental\base.html:648
 msgid "Аренда автомобилей в Кыргызстане"
@@ -95,189 +95,202 @@ msgstr ""
 
 #: .\rental\templates\rental\base.html:650
 msgid "Найти автомобиль"
-msgstr ""
+msgstr "Find a car"
 
 #: .\rental\templates\rental\base.html:661
 msgid "Автомобилей"
-msgstr ""
+msgstr "Cars"
 
 #: .\rental\templates\rental\base.html:667
 msgid "Довольных клиентов"
-msgstr ""
+msgstr "Satisfied customers"
 
 #: .\rental\templates\rental\base.html:673
 msgid "Лет опыта"
-msgstr ""
+msgstr "Years of experience"
 
 #: .\rental\templates\rental\base.html:679
 msgid "Поддержка 24/7"
-msgstr ""
+msgstr "24/7 support"
 
 #: .\rental\templates\rental\base.html:687
 msgid "Почему выбирают нас"
-msgstr ""
+msgstr "Why choose us"
 
 #: .\rental\templates\rental\base.html:688
 msgid ""
 "Мы предлагаем лучший сервис по аренде автомобилей в Кыргызстане с гарантией "
 "качества и надежности"
 msgstr ""
+"We offer the best car rental service in Kyrgyzstan with a guarantee of "
+"quality and reliability"
 
 #: .\rental\templates\rental\base.html:696
 msgid "Лучшие цены"
-msgstr ""
+msgstr "Best prices"
 
 #: .\rental\templates\rental\base.html:697
 msgid ""
 "Гарантия лучшей цены на рынке. Если найдете дешевле - мы сделаем скидку!"
 msgstr ""
+"Best price guarantee on the market. If you find it cheaper, we'll give you a"
+" discount!"
 
 #: .\rental\templates\rental\base.html:705
 msgid "Полная страховка"
-msgstr ""
+msgstr "Full insurance"
 
 #: .\rental\templates\rental\base.html:706
 msgid "Все автомобили застрахованы. Ваша безопасность - наш приоритет."
-msgstr ""
+msgstr "All cars are insured. Your safety is our priority."
 
 #: .\rental\templates\rental\base.html:714
 msgid "Без ограничения пробега"
-msgstr ""
+msgstr "No mileage limit"
 
 #: .\rental\templates\rental\base.html:715
 msgid "Путешествуйте без ограничений. Никаких лимитов на километраж."
-msgstr ""
+msgstr "Travel without limits. No mileage limits."
 
 #: .\rental\templates\rental\base.html:723
 msgid "Новые автомобили"
-msgstr ""
+msgstr "New cars"
 
 #: .\rental\templates\rental\base.html:724
 msgid ""
 "Современный парк автомобилей не старше 3 лет с регулярным техобслуживанием."
-msgstr ""
+msgstr "Modern fleet of cars no older than 3 years with regular maintenance."
 
 #: .\rental\templates\rental\base.html:732
 msgid "Круглосуточная поддержка"
-msgstr ""
+msgstr "24/7 support"
 
 #: .\rental\templates\rental\base.html:733
 msgid "Наша служба поддержки доступна 24/7 для решения любых вопросов."
-msgstr ""
+msgstr "Our support service is available 24/7 to resolve any issues."
 
 #: .\rental\templates\rental\base.html:741
 msgid "Доставка авто"
-msgstr ""
+msgstr "Car delivery"
 
 #: .\rental\templates\rental\base.html:742
 msgid "Доставим автомобиль в любую точку города: аэропорт, вокзал, отель."
 msgstr ""
+"We will deliver the car to any point in the city: airport, train station, "
+"hotel."
 
 #: .\rental\templates\rental\base.html:750
 msgid "Последние автомобили"
-msgstr ""
+msgstr "Latest cars"
 
 #: .\rental\templates\rental\base.html:751
 msgid "Выберите автомобиль, который подходит именно вам"
-msgstr ""
+msgstr "Choose the car that suits you"
 
 #: .\rental\templates\rental\base.html:766
 msgid "сидений"
-msgstr ""
+msgstr "seats"
 
 #: .\rental\templates\rental\base.html:769
 #: .\rental\templates\rental\base.html:771
 #: .\rental\templates\rental\home.html:40
 msgid "Подробнее"
-msgstr ""
+msgstr "Read more"
 
 #: .\rental\templates\rental\base.html:777
 #: .\rental\templates\rental\home.html:45
 msgid "Автомобилей пока нет"
-msgstr ""
+msgstr "There are no cars yet"
 
 #: .\rental\templates\rental\base.html:782
 msgid "Посмотреть все автомобили"
-msgstr ""
+msgstr "View all cars"
 
 #: .\rental\templates\rental\base.html:789
 msgid "Простой процесс аренды"
-msgstr ""
+msgstr "Simple rental process"
 
 #: .\rental\templates\rental\base.html:790
 msgid "Всего 4 шага до вашего идеального автомобиля"
-msgstr ""
+msgstr "Just 4 steps to your perfect car"
 
 #: .\rental\templates\rental\base.html:798
 msgid "Выбор авто"
-msgstr ""
+msgstr "Selecting a car"
 
 #: .\rental\templates\rental\base.html:799
 msgid "Выберите автомобиль из нашего каталога и укажите даты аренды"
-msgstr ""
+msgstr "Select a car from our catalog and specify rental dates"
 
 #: .\rental\templates\rental\base.html:807
 #: .\rental\templates\rental\booking_form.html:7
 msgid "Бронирование"
-msgstr ""
+msgstr "Booking"
 
 #: .\rental\templates\rental\base.html:808
 msgid "Забронируйте онлайн или по телефону с подтверждением брони"
-msgstr ""
+msgstr "Book online or by phone with booking confirmation"
 
 #: .\rental\templates\rental\base.html:816
 msgid "Оплата"
-msgstr ""
+msgstr "Payment"
 
 #: .\rental\templates\rental\base.html:817
 msgid "Оплатите удобным способом: картой, наличными или онлайн"
-msgstr ""
+msgstr "Pay in a convenient way: by card, cash or online"
 
 #: .\rental\templates\rental\base.html:825
 msgid "Получение"
-msgstr ""
+msgstr "Receiving"
 
 #: .\rental\templates\rental\base.html:826
 msgid "Получите автомобиль в указанном месте с полным баком"
-msgstr ""
+msgstr "Pick up the car at the specified location with a full tank"
 
 #: .\rental\templates\rental\base.html:834
 msgid "Отзывы клиентов"
-msgstr ""
+msgstr "Customer Reviews"
 
 #: .\rental\templates\rental\base.html:835
 msgid "Что говорят наши клиенты о сервисе AUTOPARK.KG"
-msgstr ""
+msgstr "What our clients say about the AUTOPARK.KG service"
 
 #: .\rental\templates\rental\base.html:853
 msgid ""
 "Арендовал Toyota Camry на неделю. Автомобиль в идеальном состоянии, процесс "
 "аренды занял всего 15 минут. Обязательно буду пользоваться снова!"
 msgstr ""
+"Rented a Toyota Camry for a week. The car was in perfect condition and the "
+"rental process only took 15 minutes. Will definitely use again!"
 
 #: .\rental\templates\rental\base.html:871
 msgid ""
 "Путешествовали по Иссык-Кулю на Honda CR-V. Машина не подвела, полный привод"
 " помог в горных дорогах. Спасибо за качественный сервис!"
 msgstr ""
+"We traveled around Issyk-Kul in a Honda CR-V. The car did not let us down, "
+"the all-wheel drive helped us on mountain roads. Thank you for the quality "
+"service!"
 
 #: .\rental\templates\rental\base.html:889
 msgid ""
 "Брал Mercedes для важной бизнес-встречи. Произвел отличное впечатление на "
 "партнеров. Удобно, что доставили прямо в аэропорт."
 msgstr ""
+"I took a Mercedes for an important business meeting. Made a great impression"
+" on my partners. Conveniently, they delivered it straight to the airport."
 
 #: .\rental\templates\rental\base.html:897
 msgid "Часто задаваемые вопросы"
-msgstr ""
+msgstr "Frequently asked questions"
 
 #: .\rental\templates\rental\base.html:898
 msgid "Мы ответили на самые популярные вопросы об аренде автомобилей"
-msgstr ""
+msgstr "We've answered the most popular questions about car rentals"
 
 #: .\rental\templates\rental\base.html:904
 msgid "Какие документы нужны для аренды автомобиля?"
-msgstr ""
+msgstr "What documents are needed to rent a car?"
 
 #: .\rental\templates\rental\base.html:909
 msgid ""
@@ -285,20 +298,25 @@ msgid ""
 "(стаж не менее 2 лет), паспорт и залог. Для иностранных граждан также "
 "требуется международное водительское удостоверение."
 msgstr ""
+"To rent a car, you must provide a driver's license (at least 2 years of "
+"experience), passport and a deposit. Foreign citizens also need an "
+"international driver's license."
 
 #: .\rental\templates\rental\base.html:916
 msgid "Какой срок аренды минимальный?"
-msgstr ""
+msgstr "What is the minimum rental period?"
 
 #: .\rental\templates\rental\base.html:921
 msgid ""
 "Минимальный срок аренды составляет 1 сутки. При аренде на longer periods "
 "(неделю и более) действуют специальные скидки."
 msgstr ""
+"The minimum rental period is 1 day. Special discounts apply when renting for"
+" longer periods (a week or more)."
 
 #: .\rental\templates\rental\base.html:928
 msgid "Что включает страховка?"
-msgstr ""
+msgstr "What does the insurance include?"
 
 #: .\rental\templates\rental\base.html:933
 msgid ""
@@ -306,202 +324,209 @@ msgid ""
 " включена базовая страховка. При желании вы можете оформить расширенное "
 "страховое покрытие за дополнительную плату."
 msgstr ""
+"All our cars are insured under CASCO and OSAGO policies. Basic insurance is "
+"included in the rental price. If desired, you can arrange extended insurance"
+" coverage for an additional fee."
 
 #: .\rental\templates\rental\base.html:940
 msgid "Можно ли арендовать автомобиль с водителем?"
-msgstr ""
+msgstr "Is it possible to rent a car with a driver?"
 
 #: .\rental\templates\rental\base.html:945
 msgid ""
 "Да, мы предоставляем услугу аренды автомобиля с профессиональным водителем. "
 "Стоимость услуги зависит от класса автомобиля и продолжительности аренды."
 msgstr ""
+"Yes, we provide a car rental service with a professional driver. The cost of"
+" the service depends on the class of the car and the rental period."
 
 #: .\rental\templates\rental\base.html:956
 msgid "Готовы к путешествию?"
-msgstr ""
+msgstr "Ready to travel?"
 
 #: .\rental\templates\rental\base.html:957
 #, python-format
 msgid ""
 "Забронируйте автомобиль прямо сейчас и получите скидку 10%% на первую аренду"
-msgstr ""
+msgstr "Book your car now and get 10% off your first rental"
 
 #: .\rental\templates\rental\base.html:958
 #: .\rental\templates\rental\booking_form.html:28
 #: .\rental\templates\rental\vehicle_detail.html:58
 msgid "Забронировать"
-msgstr ""
+msgstr "Book now"
 
 #: .\rental\templates\rental\base.html:959
 msgid "Позвонить нам"
-msgstr ""
+msgstr "Call us"
 
 #: .\rental\templates\rental\base.html:972
 msgid ""
 "Лучший выбор автомобилей в Кыргызстане. Находите идеальный автомобиль для "
 "ваших нужд."
 msgstr ""
+"The best selection of cars in Kyrgyzstan. Find the perfect car for your "
+"needs."
 
 #: .\rental\templates\rental\base.html:975
 msgid "Навигация"
-msgstr ""
+msgstr "Navigation"
 
 #: .\rental\templates\rental\base.html:977
 msgid "Главная"
-msgstr ""
+msgstr "Home"
 
 #: .\rental\templates\rental\base.html:978
 msgid "Каталог"
-msgstr ""
+msgstr "Catalog"
 
 #: .\rental\templates\rental\base.html:979
 msgid "О нас"
-msgstr ""
+msgstr "About Us"
 
 #: .\rental\templates\rental\base.html:980
 #: .\rental\templates\rental\base.html:984
 msgid "Контакты"
-msgstr ""
+msgstr "Contacts"
 
 #: .\rental\templates\rental\base.html:988
 msgid "Бишкек, Кыргызстан"
-msgstr ""
+msgstr "Bishkek, Kyrgyzstan"
 
 #: .\rental\templates\rental\base.html:992
 msgid "Социальные сети"
-msgstr ""
+msgstr "Social media"
 
 #: .\rental\templates\rental\base.html:1003
 msgid "Все права защищены"
-msgstr ""
+msgstr "All rights reserved"
 
 #: .\rental\templates\rental\base.html:1018
 msgid "Подтверждение выхода"
-msgstr ""
+msgstr "Confirm Exit"
 
 #: .\rental\templates\rental\base.html:1027
 msgid "Вы уверены, что хотите выйти?"
-msgstr ""
+msgstr "Are you sure you want to exit?"
 
 #: .\rental\templates\rental\base.html:1028
 msgid "Для продолжения потребуется снова войти в систему"
-msgstr ""
+msgstr "You will need to log in again to continue."
 
 #: .\rental\templates\rental\base.html:1033
 msgid "Отмена"
-msgstr ""
+msgstr "Cancel"
 
 #: .\rental\templates\rental\booking_form.html:13
 msgid "Дата начала"
-msgstr ""
+msgstr "start date"
 
 #: .\rental\templates\rental\booking_form.html:18
 msgid "Дата окончания"
-msgstr ""
+msgstr "End date"
 
 #: .\rental\templates\rental\booking_form.html:24
 #: .\rental\templates\rental\vehicle_detail.html:54
 msgid "Цена за день"
-msgstr ""
+msgstr "Price per day"
 
 #: .\rental\templates\rental\home.html:3
 msgid "Главная - AUTOPARK.KG"
-msgstr ""
+msgstr "Home - AUTOPARK.KG"
 
 #: .\rental\templates\rental\home.html:9
 msgid "Арендуйте авто быстро и удобно"
-msgstr ""
+msgstr "Rent a car quickly and conveniently"
 
 #: .\rental\templates\rental\home.html:10
 msgid "Лучшие автомобили Кыргызстана — выберите и бронируйте прямо сейчас"
-msgstr ""
+msgstr "The best cars in Kyrgyzstan - choose and book now"
 
 #: .\rental\templates\rental\home.html:14
 msgid "Поиск автомобиля..."
-msgstr ""
+msgstr "Searching for a car..."
 
 #: .\rental\templates\rental\home.html:17
 msgid "Найти"
-msgstr ""
+msgstr "Find"
 
 #: .\rental\templates\rental\home.html:23
 msgid "Доступные автомобили"
-msgstr ""
+msgstr "Available cars"
 
 #: .\rental\templates\rental\home.html:37
 #: .\rental\templates\rental\vehicle_detail.html:49
 msgid "Тип"
-msgstr ""
+msgstr "Type"
 
 #: .\rental\templates\rental\home.html:38
 #: .\rental\templates\rental\vehicle_detail.html:52
 msgid "Сидений"
-msgstr ""
+msgstr "Seats"
 
 #: .\rental\templates\rental\home.html:39
 msgid "Цена"
-msgstr ""
+msgstr "Price"
 
 #: .\rental\templates\rental\vehicle_detail.html:23
 msgid "Предыдущий"
-msgstr ""
+msgstr "Previous"
 
 #: .\rental\templates\rental\vehicle_detail.html:27
 msgid "Следующий"
-msgstr ""
+msgstr "Next"
 
 #: .\rental\templates\rental\vehicle_detail.html:50
 msgid "Трансмиссия"
-msgstr ""
+msgstr "Transmission"
 
 #: .\rental\templates\rental\vehicle_detail.html:51
 msgid "Топливо"
-msgstr ""
+msgstr "Fuel"
 
 #: .\rental\templates\rental\vehicle_detail.html:53
 msgid "Локация"
-msgstr ""
+msgstr "Location"
 
 #: .\rental\templates\rental\vehicle_detail.html:60
 msgid "Войдите, чтобы забронировать"
-msgstr ""
+msgstr "Login to book"
 
 #: .\templates\auth\login_register.html:10
 msgid "Вход / Регистрация"
-msgstr ""
+msgstr "Login / Register"
 
 #: .\templates\auth\login_register.html:235
 msgid "Добро пожаловать"
-msgstr ""
+msgstr "Welcome"
 
 #: .\templates\auth\login_register.html:277
 #: .\templates\auth\login_register.html:308
 msgid "Войти"
-msgstr ""
+msgstr "Login"
 
 #: .\templates\auth\login_register.html:279
 #: .\templates\auth\login_register.html:300
 msgid "или"
-msgstr ""
+msgstr "or"
 
 #: .\templates\auth\login_register.html:283
 msgid "Войти через Google"
-msgstr ""
+msgstr "Login with Google"
 
 #: .\templates\auth\login_register.html:287
 msgid "Нет аккаунта?"
-msgstr ""
+msgstr "Don't have an account?"
 
 #: .\templates\auth\login_register.html:287
 #: .\templates\auth\login_register.html:298
 msgid "Зарегистрироваться"
-msgstr ""
+msgstr "Register"
 
 #: .\templates\auth\login_register.html:304
 msgid "Зарегистрироваться через Google"
-msgstr ""
+msgstr "Register via Google"
 
 #: .\templates\auth\login_register.html:308
 msgid "Уже есть аккаунт?"
-msgstr ""
+msgstr "Already have an account?"
