@@ -9,14 +9,16 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-09-14 18:34+0600\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2025-09-14 19:54+0000\n"
+"Last-Translator:   <>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Translated-Using: django-rosetta 0.10.2\n"
+
 #: .\autopark\forms.py:14 .\autopark\forms.py:54
 msgid "Email"
 msgstr ""
@@ -81,13 +83,15 @@ msgstr ""
 
 #: .\rental\templates\rental\base.html:648
 msgid "Аренда автомобилей в Кыргызстане"
-msgstr ""
+msgstr "Car rental in Kyrgyzstan"
 
 #: .\rental\templates\rental\base.html:649
 msgid ""
 "Найдите идеальный автомобиль для вашего путешествия по Кыргызстану. Простая "
 "аренда, гибкие условия и лучшие цены."
 msgstr ""
+"Find the perfect car for your trip to Kyrgyzstan. Easy rental, flexible "
+"conditions and the best prices."
 
 #: .\rental\templates\rental\base.html:650
 msgid "Найти автомобиль"
@@ -253,8 +257,8 @@ msgstr ""
 
 #: .\rental\templates\rental\base.html:871
 msgid ""
-"Путешествовали по Иссык-Кулю на Honda CR-V. Машина не подвела, полный привод "
-"помог в горных дорогах. Спасибо за качественный сервис!"
+"Путешествовали по Иссык-Кулю на Honda CR-V. Машина не подвела, полный привод"
+" помог в горных дорогах. Спасибо за качественный сервис!"
 msgstr ""
 
 #: .\rental\templates\rental\base.html:889
@@ -298,8 +302,8 @@ msgstr ""
 
 #: .\rental\templates\rental\base.html:933
 msgid ""
-"Все наши автомобили застрахованы по полису КАСКО и ОСАГО. В стоимость аренды "
-"включена базовая страховка. При желании вы можете оформить расширенное "
+"Все наши автомобили застрахованы по полису КАСКО и ОСАГО. В стоимость аренды"
+" включена базовая страховка. При желании вы можете оформить расширенное "
 "страховое покрытие за дополнительную плату."
 msgstr ""
 
