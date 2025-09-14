@@ -79,26 +79,31 @@ def payment_page(request, booking_id):
     if request.method == "POST":
         form = DemoPaymentForm(request.POST)
         if form.is_valid():
-            # --- демо-логика: симулируем ответ провайдера ---
             card = form.cleaned_data["card_number"]
-            # простое правило: если заканчивается на 4242 — успех, иначе — decline
+
             if card.endswith("4242"):
                 payment.status = "succeeded"
                 payment.provider_intent_id = str(uuid.uuid4())
-                payment.provider_response = "demo_approved"
                 payment.save()
+
+                booking.status = "paid"
+                booking.save()
+
                 messages.success(request, "Оплата прошла успешно (демо).")
-                return redirect("profile")  # поменяй имя если у тебя другое
+                return redirect("profile")
             else:
                 payment.status = "failed"
-                payment.provider_response = "demo_declined"
                 payment.save()
+
                 messages.error(request, "Платёж отклонён (демо). Используйте тестовую карту 4242 4242 4242 4242.")
-                return render(request, "rental/payment_page.html", {"form": form, "booking": booking, "payment": payment})
     else:
         form = DemoPaymentForm()
 
-    return render(request, "rental/payment_page.html", {"form": form, "booking": booking, "payment": payment})
+    return render(request, "rental/payment_page.html", {
+        "form": form,
+        "booking": booking,
+        "payment": payment
+    })
 
 
 @login_required
