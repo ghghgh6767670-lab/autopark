@@ -10,7 +10,7 @@ from .serializers import VehicleSerializer, BookingCreateSerializer
 
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
-from .models import Vehicle, Booking, Payment
+from .models import Vehicle, Booking, Payment, RentalPolicy
 from .forms import BookingForm, DemoPaymentForm
 
 
@@ -76,6 +76,9 @@ def payment_page(request, booking_id):
         }
     )
 
+    # Получаем последнее условие проката
+    policy = RentalPolicy.objects.order_by("-created_at").first()
+
     if request.method == "POST":
         form = DemoPaymentForm(request.POST)
         if form.is_valid():
@@ -102,8 +105,10 @@ def payment_page(request, booking_id):
     return render(request, "rental/payment_page.html", {
         "form": form,
         "booking": booking,
-        "payment": payment
+        "payment": payment,
+        "policy": policy
     })
+
 
 
 @login_required

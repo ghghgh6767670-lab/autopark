@@ -58,6 +58,13 @@
           {% if form.cvc.errors %}<div class="text-danger small">{{ form.cvc.errors.as_text }}</div>{% endif %}
         </div>
 
+        {% if policy %}
+          <div class="mb-3">
+            <h6>{{ policy.title }}</h6>
+            <p class="small text-muted mb-1">{{ policy.rules|linebreaks }}</p>
+          </div>
+        {% endif %}
+
         <div class="d-grid gap-2">
           <button class="btn btn-primary btn-lg" type="submit">Оплатить (демо)</button>
         </div>
